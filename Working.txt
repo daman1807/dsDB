@@ -1,0 +1,131 @@
+
+Now to start with library :
+
+1. First you have to set path.
+This can be done by :
+
+	import ds
+	ds.path(''C:\Users\*\Desktop')
+
+2. Then name the database system 
+This can be done by :
+ 
+        import ds
+	ds.path('C:\Users\*\Desktop')
+	ds.File = "Sample'
+
+3. Next step is giving columns to your database.
+This can be done by :
+
+	import ds
+	ds.path('C:\Users\*\Desktop')
+	ds.File = "Sample'
+	ds.columns = ['Name','Room','ID','Hostel']
+
+
+4. Then you have to initialize the database system.This method cretes the data storage files and folders 
+This can be done by :
+	
+	import ds
+	ds.path('C:\Users\*\Desktop')
+	ds.File = "Sample'
+	ds.columns = ['Name','Room','ID','Hostel'] 	
+	ds.initialize()
+
+5. The next step is to add data, this can be done in a loop or by manuaaly adding every record.The arguement in the method is a list of values. The length of the list should be equalt to the number of columns.
+This can be done by :
+
+	import ds
+	ds.path('C:\Users\*\Desktop')
+	ds.File = "Sample'
+	ds.initialize()
+	ds.insert(['Daman Arora','269','2012C2PS788P','Vyas'])
+
+*Note that every record is inserted as a string and the result of a search query also provides as a string
+
+6. You can also search your data 
+This can be done by two methods :
+
+	1. Searching independent of column
+
+		import ds	
+		ds.path('C:\Users\*\Desktop')	
+		ds.File = "Sample'
+		ds.initialize()
+		#comment# ds.insert(['Daman Arora','269','2012C2PS788P','Vyas'])
+		for item in ds.search('Aro') :
+			print item
+
+	2. Searching columnwise
+
+		import ds	
+		ds.path('C:\Users\*\Desktop')	
+		ds.File = "Sample'
+		ds.initialize()
+		#comment#d s.insert(['Daman Arora','269','2012C2PS788P','Vyas'])
+		for item in db.searchColumn('2012','ID') :
+	 		print item
+
+7. Updating your database may take time as it has to update a record at various storage locations.
+For this you have to provide two tuples first being record name , column name and the second one will be the new value for the identified record and column to which the value is to be assigned
+This can be done by :
+
+	import ds	
+	ds.path('C:\Users\*\Desktop')	
+	ds.File = "Sample'
+	ds.initialize()
+	#comment#d s.insert(['Daman Arora','269','2012C2PS788P','Vyas'])
+	for item in db.searchColumn('2012','ID') :
+ 		print item
+	ds.update(('Daman Arora','Name'),('Daman Singh','Name'))
+	#This can also be achieved by the following line
+	#ds.update(('2012C2PS788P','ID'),('Daman Singh,'Name'))
+	for item in db.searchColumn('2012','ID') :
+ 		print item
+
+
+8. Deleting a record 
+Deleting record may take time as it has to delete a record from various storage locations
+This can also be done two by :
+	1. First column independent :
+		import ds	
+		ds.path('C:\Users\*\Desktop')	
+		ds.File = "Sample'
+		ds.initialize()
+		#comment#d s.insert(['Daman Arora','269','2012C2PS788P','Vyas'])
+		for item in db.searchColumn('2012','ID') :
+	 		print item
+		ds.update(('Daman Arora','Name'),('Daman Singh','Name'))
+		#This can also be achieved by the following line
+		#ds.update(('2012C2PS788P','ID'),('Daman Singh,'Name'))
+		for item in db.searchColumn('2012','ID') :
+	 		print item
+		ds.delete('2012C2PS788P')
+		for item in db.searchColumn('2012','ID') :
+	 		print item
+
+
+	2. Second column depedent :
+		import ds	
+		ds.path('C:\Users\*\Desktop')	
+		ds.File = "Sample'
+		ds.initialize()
+		#comment#d s.insert(['Daman Arora','269','2012C2PS788P','Vyas'])
+		for item in db.searchColumn('2012','ID') :
+	 		print item
+		ds.update(('Daman Arora','Name'),('Daman Singh','Name'))
+		#This can also be achieved by the following line
+		#ds.update(('2012C2PS788P','ID'),('Daman Singh,'Name'))
+		for item in db.searchColumn('2012','ID') :
+	 		print item
+		ds.deleteColumn('2012C2PS788P','ID')
+		for item in db.searchColumn('2012','ID') :
+	 		print item
+
+
+
+
+
+
+
+
