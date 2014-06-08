@@ -1,0 +1,53 @@
+For a n lettered word number of search patterns will be - n(n+1)/2
+Say the word be India (n= 5, for this case) 
+Word – INDIA
+Patterns – 
+1.	I
+2.	IN
+3.	IND
+4.	INDI
+5.	INDIA
+6.	N
+7.	ND
+8.	NDI
+9.	NDIA
+10.	D
+11.	DI
+12.	DIA
+13.	I
+14.	IA
+15.	A
+
+If a search query is any of the above patterns then the word ‘INDIA’ should be one of the result
+In this module I am trying to cover patterns up to length of 3 i.e. patterns for INDIA would now be: 
+
+1.	I
+2.	IN
+3.	IND
+4.	N
+5.	ND
+6.	NDI
+7.	D
+8.	DI
+9.	DIA
+10.	I
+11.	IA
+12.	A*
+
+*(Note the pattern 10 – ‘I’ would be excluded since it is already covered in the first pattern)
+
+Due to limitations of OS creating another level (patterns of length four would create great number of folders and would eat up RAM so length 3 is optimum) would not be a good idea
+
+So we now have (n+3)(n-2)/2 patterns for n lettered word
+So If we go for length of 3 then we would be covering   ( 1 –  6/((n)*(n+1)) ) * 100 percentage of combinations/patterns of that letter.
+
+The patterns are basically storage locations. The above mentioned patterns are location for example pattern 9 - ‘DIA’ would be storage location ‘/d/i/a’ similarly pattern 10 – ‘IA’ would be the location – ‘/i/a’
+
+
+So now instead of going through all database and searching for search query the system will now go through only specific records. If you type a search query ‘ind’ the script will return all the records containing ‘ind’. Instead of going through all records and searching for ‘ind’ the system will now go to specific directory ‘/d/i/a/’ and will show return records.
+
+Now, If you search something more than 3 characters example INDI , there is no directory – ‘/i/n/d/i’, so as the script knows there are only three levels of directories it will go through the database  in directory ‘/i/n/d’ and from that it will return the records containing ‘indi’ in it
+
+
+
+
